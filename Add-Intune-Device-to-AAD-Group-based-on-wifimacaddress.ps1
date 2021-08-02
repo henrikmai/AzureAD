@@ -1,4 +1,6 @@
-####################################################
+######################################################################################
+# Command out line 440 and command in line 442 to add all devices to AAD Group!       #
+######################################################################################
 # region variables
 
 $AADGroupID = Get-AutomationVariable 'AADGroupID' # Azure AD Group ID Variable
@@ -435,7 +437,10 @@ Write-Output "----------------------------------------------------"
 Write-Output "Checking if any Managed Devices are registered with Intune..."
 Write-Output ""
 
-$Devices = Get-ManagedDevices | Where-Object {$_.wiFiMacAddress -ne '' -and $_.deviceName -ne 'SURFACEHUB01' -and $_.deviceName -notlike 'Kiosk*' -and $_.deviceName -eq "WAP-kQwutQjGNxJ"}  
+$Devices = Get-ManagedDevices | Where-Object {$_.wiFiMacAddress -ne '' -and $_.deviceName -ne 'SURFACEHUB01' -and $_.deviceName -notlike 'Kiosk*' -and $_.deviceName -eq "WAP-ABCDEFGH12"}  
+# All Devices
+# $Devices = Get-ManagedDevices | Where-Object {$_.wiFiMacAddress -ne ''} 
+
 
 if($Devices){
 

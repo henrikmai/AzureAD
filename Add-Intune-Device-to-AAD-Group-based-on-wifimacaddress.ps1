@@ -1,4 +1,3 @@
-# TEST
 ####################################################
 # region variables
 
@@ -437,8 +436,6 @@ Write-Output "Checking if any Managed Devices are registered with Intune..."
 Write-Output ""
 
 $Devices = Get-ManagedDevices | Where-Object {$_.wiFiMacAddress -ne '' -and $_.deviceName -ne 'SURFACEHUB01' -and $_.deviceName -notlike 'Kiosk*' -and $_.deviceName -eq "WAP-kQwutQjGNxJ"}  
-
-#$Devices |  Format-Table deviceName, wiFiMacAddress, managedDeviceOwnerType
 
 if($Devices){
 

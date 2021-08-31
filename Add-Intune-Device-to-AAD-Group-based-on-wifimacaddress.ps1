@@ -437,7 +437,7 @@ Write-Output "----------------------------------------------------"
 Write-Output "Checking if any Managed Devices are registered with Intune..."
 Write-Output ""
 
-$Devices = Get-ManagedDevices | Where-Object {$_.wiFiMacAddress -ne '' -and $_.deviceName -ne 'SURFACEHUB01' -and $_.deviceName -notlike 'Kiosk*' -and $_.deviceName -eq "WAP-ABCDEFGH12"}  
+$Devices = Get-ManagedDevices | Where-Object {$_.wiFiMacAddress -ne '' -and $_.deviceName -ne 'SURFACEHUB01' -and $_.deviceName -notlike 'Kiosk*'}  
 # All Devices
 # $Devices = Get-ManagedDevices | Where-Object {$_.wiFiMacAddress -ne ''} 
 
@@ -495,7 +495,7 @@ $AAD_DeviceID = $Device.azureActiveDirectoryDeviceId
         Write-Output "Adding Device to AAD Group!"
         Write-Output ""
 
-        Add-AADGroupMember -GroupId $AADGroupId -AADMemberId $AAD_Id
+        Add-AADGroupMember -AADGroupId $AADGroupId -AADMemberId $AAD_Id
 
         $count++
 
